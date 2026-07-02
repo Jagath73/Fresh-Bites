@@ -1,0 +1,6 @@
+[build]
+  builder = "DOCKERFILE"
+  dockerfilePath = "BACKEND/Dockerfile"
+
+[deploy]
+  startCommand = "java -jar BACKEND/target/freshbite-1.0.0.jar"
