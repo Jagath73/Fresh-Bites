@@ -4,17 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-WORKDIR /app/BACKEND
-
-RUN chmod +x mvnw
-
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-COPY --from=builder /app/BACKEND/target/*.jar app.jar
+COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
 
